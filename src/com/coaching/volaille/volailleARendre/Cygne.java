@@ -2,6 +2,7 @@ package com.coaching.volaille.volailleARendre;
 
 public class Cygne extends VolailleARendre {
 
+	
 	public static final int nombreCygneMax = 2;
 	private static int nombreCygne;
 
@@ -23,4 +24,12 @@ public class Cygne extends VolailleARendre {
 	public String affiche() {
 		return "Cygne";
 	}
+	
+	@Override
+	public String toString() {
+		return "Cygne dateAccueil=" + dateAccueil + ", poids=" + poids ;
+	}
+
+
+	
 }

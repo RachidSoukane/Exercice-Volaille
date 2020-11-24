@@ -3,6 +3,8 @@ package com.coaching.volaille.volailler;
 import java.util.ArrayList;
 
 import com.coaching.volaille.Volaille;
+import com.coaching.volaille.volailleARendre.Cygne;
+import com.coaching.volaille.volailleARendre.Paon;
 import com.coaching.volaille.volailleAVendre.Canard;
 import com.coaching.volaille.volailleAVendre.Poulet;
 
@@ -38,15 +40,24 @@ public class Poulailler extends ArrayList<Volaille> {
 	public void nombreVolailleType() {
 		int i = 0;
 		int j = 0;
+		int k = 0;
+		int l = 0;
 		for (Volaille volaille : this) {
 			if (volaille instanceof Poulet) {
 				i++;
 			} else if (volaille instanceof Canard) {
 				j++;
+			}else if (volaille instanceof Paon) {
+				k++;
+			}else if (volaille instanceof Cygne) {
+				l++;
 			}
 		}
 
-		System.out.println("le nombre de poulet est egale à : " + i + "\n le nombre de canard est egale à : " + j);
+		System.out.println("le nombre de poulet est egale à : " + i 
+				+ "\n le nombre de canard est egale à : " + j
+				+ "\n le nombre de paon est egale à : " + k
+				+ "\n le nombre de cygne est egale à : " + l);
 	}
 
 	public void prixTotalVolailleAbatable() {
@@ -67,7 +78,8 @@ public class Poulailler extends ArrayList<Volaille> {
 
 		System.out.println("Le prix total de volaille abatable est : " + prix);
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		String affichage="";

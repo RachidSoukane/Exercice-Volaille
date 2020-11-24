@@ -21,4 +21,11 @@ public class Paon extends VolailleARendre {
 	public String affiche() {
 		return "paon";
 	}
+
+	@Override
+	public String toString() {
+		return "Paon dateAccueil=" + dateAccueil + ", poids=" + poids;
+	}
+	
+	
 }

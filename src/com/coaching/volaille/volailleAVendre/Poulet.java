@@ -45,6 +45,11 @@ public final class Poulet extends VolailleAVendre {
 		return "poulet";
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Poulet poids=" + poids ;
+	}
 	
 	
 

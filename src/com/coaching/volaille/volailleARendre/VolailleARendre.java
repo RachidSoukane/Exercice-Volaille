@@ -6,5 +6,14 @@ import com.coaching.volaille.Volaille;
 
 public abstract class VolailleARendre extends Volaille {
 	
+	protected final Date dateAccueil;
+
+	public VolailleARendre() {
+		this.dateAccueil = new Date();
+	}
 	
+	public Date getDateAccueil() {
+		return dateAccueil;
+	}
+
 }

@@ -1,13 +1,13 @@
 package com.coaching.volaille.volailleARendre;
 
-public class Paon extends VolailleARendre{
-	
-	public static final int nombrePaonMax=3;
+public class Paon extends VolailleARendre {
+
+	public static final int nombrePaonMax = 3;
 	private static int nombrePaon;
 
-	public Paon() {
-    super();
-    }
+	public Paon(int poids) {
+		super(poids);
+	}
 
 	public int getNombre() {
 		return nombrePaon;

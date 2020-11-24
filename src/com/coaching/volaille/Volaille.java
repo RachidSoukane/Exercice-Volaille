@@ -8,8 +8,10 @@ public abstract class Volaille implements Comparable<Volaille> {
     private static int nombreAnimal;
     private int id;
     private static int compteur;
+    protected int poids;
 
-    public Volaille(){
+    public Volaille(int poids){
+    	this.poids = poids;
         this.id = ++compteur;
     }
 

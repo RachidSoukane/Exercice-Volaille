@@ -44,11 +44,12 @@ public class MenuAction {
 //	}
 
 	public void menuGeneral() {
+		System.out.println("\n\n\n");
 		boolean sortie = true;
 		try (Scanner in = new Scanner(System.in)) {
 			while (sortie) {
 				MenuAffichage.menuGeneral();
-				switch (scannerInt(in, "\n\nfaites votre Choix SVP")) {
+				switch (scannerInt(in, "\n\nFaites votre Choix SVP")) {
 				case 0:
 					sortie = false;
 					break;
@@ -69,7 +70,7 @@ public class MenuAction {
 					menuAffichage(in);
 					break;
 				default:
-					System.out.println("je n'ai pas compris votre choix");
+					System.out.println("Je n'ai pas compris votre choix");
 					break;
 
 				}
@@ -79,10 +80,11 @@ public class MenuAction {
 	}
 
 	public void menuEnregistrement(Scanner in) {
+		System.out.println("\n\n\n");
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuEnregistrement();
-			switch (scannerInt(in, "\n\nfaites votre Choix SVP")) {
+			switch (scannerInt(in, "\n\nFaites votre Choix SVP")) {
 			case 0:
 				sortie = false;
 				break;
@@ -103,7 +105,7 @@ public class MenuAction {
 						Cygne.NOMRE_CYGNE_MAX);
 				break;
 			default:
-				System.out.println("je n'ai pas compris votre choix");
+				System.out.println("Je n'ai pas compris votre choix");
 				break;
 
 			}
@@ -112,10 +114,11 @@ public class MenuAction {
 	}
 
 	public void menuSortie(Scanner in) {
+		System.out.println("\n\n\n");
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuSortie();
-			switch (scannerInt(in, "Faites votre Choix SVP")) {
+			switch (scannerInt(in, "\n\nFaites votre Choix SVP")) {
 			case 0:
 				sortie = false;
 				break;
@@ -129,7 +132,7 @@ public class MenuAction {
 				if (pvolaille instanceof Poulet && pvolaille != null) {
 					this.poulailler.retirer(pvolaille);
 				} else {
-					System.out.println("la volaille que vous venez de selectionné n'est pas un poulet");
+					System.out.println("La volaille que vous venez de selectionné n'est pas un poulet");
 				}
 				break;
 			case 2:
@@ -142,7 +145,7 @@ public class MenuAction {
 				if (pvolaille2 instanceof Canard && pvolaille2 != null) {
 					this.poulailler.retirer(pvolaille2);
 				} else {
-					System.out.println("la volaille que vous venez de selectionné n'est pas un canard");
+					System.out.println("La volaille que vous venez de selectionné n'est pas un canard");
 				}
 
 				break;
@@ -156,7 +159,7 @@ public class MenuAction {
 				if (pvolaille3 instanceof Paon && pvolaille3 != null) {
 					this.poulailler.retirer(pvolaille3);
 				} else {
-					System.out.println("la volaille que vous venez de selectionné n'est pas un paon");
+					System.out.println("La volaille que vous venez de selectionné n'est pas un paon");
 				}
 				break;
 			case 4:
@@ -169,11 +172,11 @@ public class MenuAction {
 				if (pvolaille4 instanceof Cygne && pvolaille4 != null) {
 					this.poulailler.retirer(pvolaille4);
 				} else {
-					System.out.println("la volaille que vous venez de selectionné n'est pas un cygne");
+					System.out.println("La volaille que vous venez de selectionné n'est pas un cygne");
 				}
 				break;
 			default:
-				System.out.println("je n'ai pas compris votre choix");
+				System.out.println("Je n'ai pas compris votre choix");
 				break;
 
 			}
@@ -183,10 +186,11 @@ public class MenuAction {
 	}
 
 	public void menuModification(Scanner in) {
+		System.out.println("\n\n\n");
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuModification();
-			switch (scannerInt(in, "\n\nfaites votre Choix SVP")) {
+			switch (scannerInt(in, "\n\nFaites votre Choix SVP")) {
 			case 0:
 				sortie = false;
 				break;
@@ -214,7 +218,7 @@ public class MenuAction {
 				}
 				break;
 			default:
-				System.out.println("je n'ai pas compris votre choix");
+				System.out.println("Je n'ai pas compris votre choix");
 				break;
 
 			}
@@ -224,10 +228,11 @@ public class MenuAction {
 	}
 
 	public void menuAffichage(Scanner in) {
+		System.out.println("\n\n\n");
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuAffichage();
-			switch (scannerInt(in, "Faites votre Choix SVP")) {
+			switch (scannerInt(in, "\n\nFaites votre Choix SVP")) {
 			case 0:
 				sortie = false;
 				break;
@@ -245,7 +250,7 @@ public class MenuAction {
 				System.out.println(this.poulailler);
 				break;
 			default:
-				System.out.println("je n'ai pas compris votre choix");
+				System.out.println("Je n'ai pas compris votre choix");
 				break;
 
 			}
@@ -255,6 +260,7 @@ public class MenuAction {
 	}
 	
 	public int affichageListe (int a) {
+		System.out.println("\n\n\n");
 		int i=0;
 		if(a == 0) {
 			for (Volaille volaille : poulailler) {

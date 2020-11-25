@@ -14,14 +14,14 @@ public class MenuAction {
 
 	Poulailler poulailler = new Poulailler();
 
-	public static float scannerFloat(Scanner in, String message) {
-		System.out.println(message);
-		float i = in.nextFloat();
-		if (in.hasNextLine()) {
-			in.nextLine();
-		}
-		return i;
-	}
+//	public static float scannerFloat(Scanner in, String message) {
+//		System.out.println(message);
+//		float i = in.nextFloat();
+//		if (in.hasNextLine()) {
+//			in.nextLine();
+//		}
+//		return i;
+//	}
 
 	public static int scannerInt(Scanner in, String message) {
 		System.out.println(message);
@@ -36,12 +36,12 @@ public class MenuAction {
 		return i;
 	}
 
-	public static String scannerString(Scanner in, String message) {
-		if (message != null)
-			System.out.println(message);
-		String i = in.nextLine();
-		return i;
-	}
+//	public static String scannerString(Scanner in, String message) {
+//		if (message != null)
+//			System.out.println(message);
+//		String i = in.nextLine();
+//		return i;
+//	}
 
 	public void menuGeneral() {
 		boolean sortie = true;
@@ -88,19 +88,19 @@ public class MenuAction {
 				break;
 			case 1:
 				this.poulailler.ajouter(new Poulet(scannerInt(in, "Veuillez entrer le poids initiale du poulet")),
-						Poulet.nombrePouletMax);
+						Poulet.NOMBRE_POULET_MAX);
 				break;
 			case 2:
 				this.poulailler.ajouter(new Canard(scannerInt(in, "Veuillez entrer le poids initiale du Canard")),
-						Canard.nombreCanardMax);
+						Canard.NOMBRE_CANARD_MAX);
 				break;
 			case 3:
 				this.poulailler.ajouter(new Paon(scannerInt(in, "Veuillez entrer le poids initiale du paon")),
-						Paon.nombrePaonMax);
+						Paon.NOMBRE_PAON_MAX);
 				break;
 			case 4:
 				this.poulailler.ajouter(new Cygne(scannerInt(in, "Veuillez entrer le poids initiale du Cygne")),
-						Cygne.nombreCygneMax);
+						Cygne.NOMRE_CYGNE_MAX);
 				break;
 			default:
 				System.out.println("je n'ai pas compris votre choix");
@@ -203,12 +203,15 @@ public class MenuAction {
 				Canard.setPrixKilo(scannerInt(in, "Veuillez donner les nouveau prix du jour du canard"));
 				break;
 			case 5:
-				if(!poulailler.isEmpty()) {
-					Volaille volaille = Volaille.getVolailleById(poulailler,
-							scannerInt(in, "Veuillez saisire l'Id du volaille"));
-					volaille.setPoids(scannerInt(in, "Veuillez donner le nouveau poids de ce volaille"));
+				System.out.println(this.poulailler.toString());
+				if(!this.poulailler.isEmpty()) {
+				Volaille volaille = null;
+				do {				
+				  volaille = Volaille.getVolailleById(poulailler,
+							scannerInt(in, "Veuillez saisire l'Id du volaille"));					
+				}while(volaille == null || volaille.getId()== 0);
+				volaille.setPoids(scannerInt(in, "Veuillez donner le nouveau poids de ce volaille"));
 				}
-
 				break;
 			default:
 				System.out.println("je n'ai pas compris votre choix");

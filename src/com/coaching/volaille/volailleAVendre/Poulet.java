@@ -2,10 +2,10 @@ package com.coaching.volaille.volailleAVendre;
 
 public final class Poulet extends VolailleAVendre {
 
-	public static final int nombrePouletMax = 5;
+	public static final int NOMBRE_POULET_MAX = 5;
 	private static int nombrePoulet;
 	private static int poidAbatage=800;
-	static int prixKilo;
+	static int prixKilo = 5;
 
 	public Poulet(int poids) {
 		super(poids);
@@ -48,7 +48,7 @@ public final class Poulet extends VolailleAVendre {
 
 	@Override
 	public String toString() {
-		return "Poulet id = " +this.getId() +" poids=" + poids ;
+		return "Poulet id = " +this.getId() +" poids=" + poids + " grammes"  ;
 	}
 	
 	

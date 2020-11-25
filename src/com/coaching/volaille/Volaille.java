@@ -1,7 +1,5 @@
 package com.coaching.volaille;
 
-import java.util.ArrayList;
-
 import com.coaching.volaille.volailleARendre.VolailleARendre;
 import com.coaching.volaille.volailleAVendre.VolailleAVendre;
 import com.coaching.volaille.volailler.Poulailler;
@@ -9,7 +7,7 @@ import com.coaching.volaille.volailler.Poulailler;
 
 
 public abstract class Volaille implements Comparable<Volaille> {
-	public static final int nombreAnimalMax = 8;
+	public static final int NOMBRE_ANIMAL_MAX = 8;
 	private static int nombreAnimal;
 	private int id;
 	private static int compteur;
@@ -17,6 +15,10 @@ public abstract class Volaille implements Comparable<Volaille> {
 
 	public Volaille(int poids) {
 		this.poids = poids;
+		
+	}
+
+	public void setId() {		
 		this.id = ++compteur;
 	}
 
@@ -60,7 +62,7 @@ public abstract class Volaille implements Comparable<Volaille> {
 				 return volaille;
 			}						
 		}
-		System.out.println("ce volaille n'existe pas!!!");
+		System.out.println("cette volaille n'existe pas!!!");
 		return null;
 	}
 

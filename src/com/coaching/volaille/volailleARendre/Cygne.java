@@ -3,7 +3,7 @@ package com.coaching.volaille.volailleARendre;
 public class Cygne extends VolailleARendre {
 
 	
-	public static final int nombreCygneMax = 2;
+	public static final int NOMRE_CYGNE_MAX = 2;
 	private static int nombreCygne;
 
 	public Cygne(int poids) {
@@ -27,7 +27,7 @@ public class Cygne extends VolailleARendre {
 	
 	@Override
 	public String toString() {
-		return "Cygne id =  "+this.getId() +" dateAccueil=" + dateAccueil + ", poids=" + poids ;
+		return "Cygne id =  "+this.getId() +" dateAccueil=" + dateAccueil + ", poids=" + poids + " grammes" ;
 	}
 
 

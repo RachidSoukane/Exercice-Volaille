@@ -2,10 +2,10 @@ package com.coaching.volaille.volailleAVendre;
 
 public final class Canard extends VolailleAVendre {
 
-	public static final int nombreCanardMax = 4;
+	public static final int NOMBRE_CANARD_MAX = 4;
 	private static int nombreCanard;
 	private static int poidAbatage=2200;
-	private static int prixKilo;
+	private static int prixKilo =4;
 	
 
 	public  Canard(int poids) {
@@ -47,7 +47,7 @@ public final class Canard extends VolailleAVendre {
 
 	@Override
 	public String toString() {
-		return "Canard  id = " +this.getId() +" poids=" + poids;
+		return "Canard  id = " +this.getId() +" poids=" + poids + " grammes" ;
 	}
 	
 	

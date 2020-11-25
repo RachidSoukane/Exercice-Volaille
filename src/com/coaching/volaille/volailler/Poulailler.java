@@ -11,9 +11,10 @@ import com.coaching.volaille.volailleAVendre.Poulet;
 public class Poulailler extends ArrayList<Volaille> {
 
 	public void ajouter(Volaille volaille, int nombre) {
-		if (Volaille.getNombreAnimal() < Volaille.nombreAnimalMax) {
+		if (Volaille.getNombreAnimal() < Volaille.NOMBRE_ANIMAL_MAX) {
 			if (volaille.getNombre() < nombre) {
 				this.add(volaille);
+				volaille.setId();
 				volaille.setNombre(volaille.getNombre() + 1);
 				Volaille.setNombreAnimal(Volaille.getNombreAnimal() + 1);
 				System.out.println("un " + volaille.affiche() + " a éte ajouté");
@@ -22,7 +23,7 @@ public class Poulailler extends ArrayList<Volaille> {
 			}
 
 		} else {
-			System.out.println("le nombre limite  atteint");
+			System.out.println("le nombre limite atteint");
 		}
 	}
 
@@ -64,19 +65,19 @@ public class Poulailler extends ArrayList<Volaille> {
 		int prix = 0;
 		for (Volaille volaille : this) {
 			if (volaille instanceof Poulet) {
-				int poid = ((Poulet) volaille).getPoids();
-				if (poid >= Poulet.getPoidAbatage()) {
-					prix += Poulet.getPrixKilo() * (poid / 1000);
+				int poids = ((Poulet) volaille).getPoids();
+				if (poids >= Poulet.getPoidAbatage()) {
+					prix += Poulet.getPrixKilo() * (poids / 1000);
 				}
 			} else if (volaille instanceof Canard) {
-				int poid = ((Canard) volaille).getPoids();
-				if (poid >= Canard.getPoidAbatage()) {
-					prix += Canard.getPrixKilo() * (poid / 1000);
+				int poids = ((Canard) volaille).getPoids();
+				if (poids >= Canard.getPoidAbatage()) {
+					prix += Canard.getPrixKilo() * (poids / 1000);
 				}
 			}
 		}
 
-		System.out.println("Le prix total de volaille abatable est : " + prix);
+		System.out.println("Le prix total de volaille abattable est : " + prix +" €");
 	}
 	
 	

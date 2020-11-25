@@ -2,7 +2,7 @@ package com.coaching.volaille.volailleARendre;
 
 public class Paon extends VolailleARendre {
 
-	public static final int nombrePaonMax = 3;
+	public static final int NOMBRE_PAON_MAX = 3;
 	private static int nombrePaon;
 
 	public Paon(int poids) {
@@ -24,7 +24,7 @@ public class Paon extends VolailleARendre {
 
 	@Override
 	public String toString() {
-		return "Paon id =  "+this.getId() +" dateAccueil=" + dateAccueil + ", poids=" + poids;
+		return "Paon id =  "+this.getId() +" dateAccueil=" + dateAccueil + ", poids=" + poids + " grammes" ;
 	}
 	
 	

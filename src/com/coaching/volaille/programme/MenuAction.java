@@ -25,6 +25,10 @@ public class MenuAction {
 
 	public static int scannerInt(Scanner in, String message) {
 		System.out.println(message);
+		while (!in.hasNextInt()) {
+			in.next();
+			System.out.println("veuillez saisir un entier");
+		}
 		int i = in.nextInt();
 		if (in.hasNextLine()) {
 			in.nextLine();
@@ -199,9 +203,12 @@ public class MenuAction {
 				Canard.setPrixKilo(scannerInt(in, "Veuillez donner les nouveau prix du jour du canard"));
 				break;
 			case 5:
-				Volaille volaille = Volaille.getVolailleById(poulailler,
-						scannerInt(in, "Veuillez saisire l'Id du volaille"));
-				volaille.setPoids(scannerInt(in, "Veuillez donner le nouveau poids de ce volaille"));
+				if(!poulailler.isEmpty()) {
+					Volaille volaille = Volaille.getVolailleById(poulailler,
+							scannerInt(in, "Veuillez saisire l'Id du volaille"));
+					volaille.setPoids(scannerInt(in, "Veuillez donner le nouveau poids de ce volaille"));
+				}
+
 				break;
 			default:
 				System.out.println("je n'ai pas compris votre choix");

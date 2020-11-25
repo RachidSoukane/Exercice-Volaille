@@ -13,7 +13,7 @@ import com.coaching.volaille.volailler.Poulailler;
 public class MenuAction {
 
 	Poulailler poulailler = new Poulailler();
-	
+
 	public static float scannerFloat(Scanner in, String message) {
 		System.out.println(message);
 		float i = in.nextFloat();
@@ -39,7 +39,7 @@ public class MenuAction {
 		return i;
 	}
 
-	public  void menuGeneral() {
+	public void menuGeneral() {
 		boolean sortie = true;
 		try (Scanner in = new Scanner(System.in)) {
 			while (sortie) {
@@ -49,19 +49,19 @@ public class MenuAction {
 					sortie = false;
 					break;
 				case 1:
-					MenuAffichage.menuEnregistrement();
+
 					menuEnregistrement(in);
 					break;
 				case 2:
-					MenuAffichage.menuSortie();
+
 					menuSortie(in);
 					break;
 				case 3:
-					MenuAffichage.menuModification();
+
 					menuModification(in);
 					break;
 				case 4:
-					MenuAffichage.menuAffichage();
+
 					menuAffichage(in);
 					break;
 				default:
@@ -74,7 +74,7 @@ public class MenuAction {
 
 	}
 
-	public  void menuEnregistrement(Scanner in) {
+	public void menuEnregistrement(Scanner in) {
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuEnregistrement();
@@ -107,7 +107,7 @@ public class MenuAction {
 		}
 	}
 
-	public  void menuSortie(Scanner in) {
+	public void menuSortie(Scanner in) {
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuSortie();
@@ -116,16 +116,57 @@ public class MenuAction {
 				sortie = false;
 				break;
 			case 1:
-				this.poulailler.retirer(poulailler.get(scannerInt(in, "Veuillez donner l'id du poulet")));
+				if(affichageListe(0)==0) {
+					System.out.println("Il ne reste plus de poulet");
+					break;
+				}
+				Volaille pvolaille = Volaille.getVolailleById(poulailler,
+						scannerInt(in, "Veuillez saisire l'Id du poulet"));
+				if (pvolaille instanceof Poulet && pvolaille != null) {
+					this.poulailler.retirer(pvolaille);
+				} else {
+					System.out.println("la volaille que vous venez de selectionné n'est pas un poulet");
+				}
 				break;
 			case 2:
-				this.poulailler.retirer(poulailler.get(scannerInt(in, "Veuillez donner l'id du canard")));
+				if(affichageListe(1)==0) {
+					System.out.println("Il ne reste plus de canard");
+					break;
+				}
+				Volaille pvolaille2 = Volaille.getVolailleById(poulailler,
+						scannerInt(in, "Veuillez saisire l'Id du canard"));
+				if (pvolaille2 instanceof Canard && pvolaille2 != null) {
+					this.poulailler.retirer(pvolaille2);
+				} else {
+					System.out.println("la volaille que vous venez de selectionné n'est pas un canard");
+				}
+
 				break;
 			case 3:
-				this.poulailler.retirer(poulailler.get(scannerInt(in, "Veuillez donner l'id du paon")));
+				if(affichageListe(2)==0) {
+					System.out.println("Il ne reste plus de paon");
+					break;
+				}
+				Volaille pvolaille3 = Volaille.getVolailleById(poulailler,
+						scannerInt(in, "Veuillez saisire l'Id du paon"));
+				if (pvolaille3 instanceof Paon && pvolaille3 != null) {
+					this.poulailler.retirer(pvolaille3);
+				} else {
+					System.out.println("la volaille que vous venez de selectionné n'est pas un paon");
+				}
 				break;
 			case 4:
-				this.poulailler.retirer(poulailler.get(scannerInt(in, "Veuillez donner l'id du cygne")));
+				if(affichageListe(3)==0) {
+					System.out.println("Il ne reste plus de cygne");
+					break;
+				}
+				Volaille pvolaille4 = Volaille.getVolailleById(poulailler,
+						scannerInt(in, "Veuillez saisire l'Id du cygne"));
+				if (pvolaille4 instanceof Cygne && pvolaille4 != null) {
+					this.poulailler.retirer(pvolaille4);
+				} else {
+					System.out.println("la volaille que vous venez de selectionné n'est pas un cygne");
+				}
 				break;
 			default:
 				System.out.println("je n'ai pas compris votre choix");
@@ -137,7 +178,7 @@ public class MenuAction {
 
 	}
 
-	public  void menuModification(Scanner in) {
+	public void menuModification(Scanner in) {
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuModification();
@@ -158,7 +199,8 @@ public class MenuAction {
 				Canard.setPrixKilo(scannerInt(in, "Veuillez donner les nouveau prix du jour du canard"));
 				break;
 			case 5:
-				Volaille volaille = Volaille.getVolailleById(poulailler, scannerInt(in, "Veuillez saisire l'Id du volaille"));
+				Volaille volaille = Volaille.getVolailleById(poulailler,
+						scannerInt(in, "Veuillez saisire l'Id du volaille"));
 				volaille.setPoids(scannerInt(in, "Veuillez donner le nouveau poids de ce volaille"));
 				break;
 			default:
@@ -171,7 +213,7 @@ public class MenuAction {
 		sortie = true;
 	}
 
-	public  void menuAffichage(Scanner in) {
+	public void menuAffichage(Scanner in) {
 		boolean sortie = true;
 		while (sortie) {
 			MenuAffichage.menuAffichage();
@@ -186,11 +228,11 @@ public class MenuAction {
 				this.poulailler.nombreVolailleType();
 				break;
 			case 3:
-				this.poulailler.toString();
+				System.out.println(this.poulailler);
 				break;
 			case 4:
 				Collections.sort(this.poulailler);
-				this.poulailler.toString();
+				System.out.println(this.poulailler);
 				break;
 			default:
 				System.out.println("je n'ai pas compris votre choix");
@@ -200,6 +242,41 @@ public class MenuAction {
 
 		}
 		sortie = true;
+	}
+	
+	public int affichageListe (int a) {
+		int i=0;
+		if(a == 0) {
+			for (Volaille volaille : poulailler) {
+				if (volaille instanceof Poulet) {
+					System.out.println(volaille.toString());
+					i++;
+				} 
+			}
+		}else if(a == 1) {
+			for (Volaille volaille : poulailler) {
+				if (volaille instanceof Canard) {
+					System.out.println(volaille.toString());
+					i++;
+				} 
+			}
+		}else if(a == 2 ) {
+			for (Volaille volaille : poulailler) {
+				if (volaille instanceof Paon) {
+					System.out.println(volaille.toString());
+					i++;
+				} 
+			}
+		}else if(a == 3) {
+			for (Volaille volaille : poulailler) {
+				if (volaille instanceof Cygne) {
+					System.out.println(volaille.toString());
+					i++;
+				} 
+			}
+		}
+	 return i;
+		
 	}
 
 }

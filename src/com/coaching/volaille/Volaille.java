@@ -44,10 +44,12 @@ public abstract class Volaille implements Comparable<Volaille> {
 	public int compareTo(Volaille volaille) {
 		if (volaille instanceof VolailleARendre && this instanceof VolailleARendre) {
 			return ((VolailleARendre) this).getDateAccueil().compareTo(((VolailleARendre) volaille).getDateAccueil());
-		} else if (volaille instanceof VolailleARendre) {
+		} else if (this instanceof VolailleARendre && volaille instanceof VolailleAVendre) {
 			return -1;
-		} else {
-			return Integer.compare(((VolailleAVendre) this).getPoids(), ((VolailleAVendre) volaille).getPoids());
+		}else if(volaille instanceof VolailleARendre && this instanceof VolailleAVendre) {
+			return 1;
+		} else  {
+			return Integer.compare( volaille.getPoids(),  this.getPoids());
 		}
 
 	}

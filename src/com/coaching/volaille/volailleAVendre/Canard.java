@@ -47,7 +47,7 @@ public final class Canard extends VolailleAVendre {
 
 	@Override
 	public String toString() {
-		return "Canard poids=" + poids;
+		return "Canard  id = " +this.getId() +" poids=" + poids;
 	}
 	
 	

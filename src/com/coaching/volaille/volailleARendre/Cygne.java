@@ -27,7 +27,7 @@ public class Cygne extends VolailleARendre {
 	
 	@Override
 	public String toString() {
-		return "Cygne dateAccueil=" + dateAccueil + ", poids=" + poids ;
+		return "Cygne id =  "+this.getId() +" dateAccueil=" + dateAccueil + ", poids=" + poids ;
 	}
 
 

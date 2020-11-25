@@ -16,7 +16,7 @@ public class Poulailler extends ArrayList<Volaille> {
 				this.add(volaille);
 				volaille.setNombre(volaille.getNombre() + 1);
 				Volaille.setNombreAnimal(Volaille.getNombreAnimal() + 1);
-				System.out.println("un " + volaille.affiche() + " a éte ajouter");
+				System.out.println("un " + volaille.affiche() + " a éte ajouté");
 			} else {
 				System.out.println("le nombre limite " + volaille.affiche() + "  atteint");
 			}
@@ -31,7 +31,7 @@ public class Poulailler extends ArrayList<Volaille> {
 			this.remove(volaille);
 			volaille.setNombre(volaille.getNombre() - 1);
 			Volaille.setNombreAnimal(Volaille.getNombreAnimal() - 1);
-			System.out.println("un " + volaille.affiche() + " a éte supprimer");
+			System.out.println("un " + volaille.affiche() + " a éte supprimé");
 		} else {
 			System.out.println("cette " + volaille.affiche() + " n'est pas dans le poulailler");
 		}
